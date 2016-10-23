@@ -48,7 +48,10 @@ public class STGUIMain extends JFrame implements ActionListener {
                 STplayer humanPlayer = game.getHumanPlayer();
 
                 STGUIPlayersView playersView = new STGUIPlayersView(humanPlayer);
-                add(playersView);
+                add(playersView, BorderLayout.SOUTH);
+                JScrollPane jScrollPane = new JScrollPane(playersView);
+                jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+                add(jScrollPane, BorderLayout.SOUTH);
                 //game.assignHumanPlayerID();
                 //game.assignComputerPlayersID();
             }

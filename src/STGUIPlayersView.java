@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -24,6 +25,8 @@ public class STGUIPlayersView extends JPanel {
             STcard card = cards.get(i);
             STGUICardView cardView = new STGUICardView(card);
             add(cardView);
+            repaint();
+            revalidate();
         }
     }
 
