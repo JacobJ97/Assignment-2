@@ -90,4 +90,8 @@ public class STcard {
                     " | Action: " + cardContents[1]);
         }
     }
+
+    public int getId() {
+        return id;
+    }
 }
