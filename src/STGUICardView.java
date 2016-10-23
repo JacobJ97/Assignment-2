@@ -36,7 +36,7 @@ public class STGUICardView extends JPanel{
             public void mouseClicked(MouseEvent e) {
                 numOfClicks++;
                 if (numOfClicks == SINGLE_CLICK) {
-                    Border border = BorderFactory.createLineBorder(Color.blue);
+                    Border border = BorderFactory.createLineBorder(Color.blue, 5);
                     cardName.setBorder(border);
                     //cardName.setText("Selected");
                     super.mouseClicked(e);
@@ -44,8 +44,8 @@ public class STGUICardView extends JPanel{
                 else {
                     if (numOfClicks == DOUBLE_CLICK) {
                         cardName.setIcon(null);
-                        cardName.setText("Played, and sent to the deck.");
                         cardName.setBorder(null);
+                        cardName.setText("Played, and sent to the deck.");
                         super.mouseClicked(e);
                     }
                 }
@@ -53,9 +53,9 @@ public class STGUICardView extends JPanel{
             }
 
             @Override
-            public void mouseEntered(MouseEvent e) {
-
-                super.mouseEntered(e);
+            public void mouseExited(MouseEvent e) {
+                numOfClicks = 0;
+                cardName.setBorder(null);
             }
         });
     }

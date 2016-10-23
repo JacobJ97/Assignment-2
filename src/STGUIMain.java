@@ -16,6 +16,7 @@ public class STGUIMain extends JFrame implements ActionListener {
     JButton readInstructionsButton = new JButton("Read Instructions");
     JButton returnToMenuButton = new JButton("Return to Menu");
     JButton dealCardsButton = new JButton("Submit");
+    JButton pickUpButton = new JButton("Pick Up Card");
     Font titleFont = new Font("Arial", Font.BOLD, 36);
     JComboBox<Integer> numOfPlayersComboBox = new JComboBox<>();
 
@@ -52,6 +53,10 @@ public class STGUIMain extends JFrame implements ActionListener {
                 JScrollPane jScrollPane = new JScrollPane(playersView);
                 jScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
                 add(jScrollPane, BorderLayout.SOUTH);
+                add(pickUpButton, BorderLayout.LINE_END);
+
+
+
                 //game.assignHumanPlayerID();
                 //game.assignComputerPlayersID();
             }
