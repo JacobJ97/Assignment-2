@@ -12,10 +12,10 @@ public class STGUIPlayersView extends JPanel {
 
     public STGUIPlayersView(STplayer player) {
         this.player = player;
-
         add(cardLabels);
 
         addAllCards();
+
     }
 
     private void addAllCards() {

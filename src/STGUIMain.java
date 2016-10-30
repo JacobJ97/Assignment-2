@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /**
  * Created by outba on 10/22/2016.
@@ -34,14 +35,14 @@ public class STGUIMain extends JFrame implements ActionListener {
         Object buttonClickedSource = e.getSource();
         if (buttonClickedSource == startGameButton) {
             getNumOfPlayers();
-        }
-        else {
+        } else {
             if (buttonClickedSource == dealCardsButton) {
                 mainPanel.remove(instructionsNumOfPlayersLabel);
                 mainPanel.remove(numOfPlayersComboBox);
                 mainPanel.remove(dealCardsButton);
                 int numOfPlayersInt = (int) numOfPlayersComboBox.getSelectedItem();
-                System.out.println(numOfPlayersInt);
+
+                //System.out.println(numOfPlayersInt);
                 STgame game = new STgame(numOfPlayersInt);
                 game.selectDealer();
                 game.dealRandomCardsToEachPlayer();
@@ -56,15 +57,12 @@ public class STGUIMain extends JFrame implements ActionListener {
                 add(pickUpButton, BorderLayout.LINE_END);
 
 
-
                 //game.assignHumanPlayerID();
                 //game.assignComputerPlayersID();
-            }
-            else {
+            } else {
                 if (buttonClickedSource == exitButton) {
                     System.exit(0);
-                }
-                else {
+                } else {
                     if (buttonClickedSource == readInstructionsButton) {
                         mainPanel.remove(mainTitleLabel);
                         mainPanel.remove(startGameButton);
@@ -73,19 +71,23 @@ public class STGUIMain extends JFrame implements ActionListener {
                         instructionTitleLabel.setFont(titleFont);
                         buttonPanelConstraints.gridx = 1;
                         buttonPanelConstraints.gridy = 0;
-                        mainPanel.add(instructionTitleLabel,buttonPanelConstraints);
+                        mainPanel.add(instructionTitleLabel, buttonPanelConstraints);
                         buttonPanelConstraints.gridy = 1;
                         mainPanel.add(instructionsDescription, buttonPanelConstraints);
                         buttonPanelConstraints.gridy = 2;
                         mainPanel.add(returnToMenuButton, buttonPanelConstraints);
 
-                    }
-                    else {
+                    } else {
                         if (buttonClickedSource == returnToMenuButton) {
                             mainPanel.remove(instructionTitleLabel);
                             mainPanel.remove(instructionsDescription);
                             mainPanel.remove(returnToMenuButton);
                             mainScreenSettings();
+                        } else {
+                            if (buttonClickedSource == pickUpButton) {
+                                System.out.println("You are picking up a card, and passing.");
+                                JOptionPane.showMessageDialog(null, "You are picking up a card, and passing.");
+                            }
                         }
                     }
                 }
@@ -144,6 +146,7 @@ public class STGUIMain extends JFrame implements ActionListener {
         readInstructionsButton.addActionListener(this);
         returnToMenuButton.addActionListener(this);
         dealCardsButton.addActionListener(this);
+        pickUpButton.addActionListener(this);
     }
 
     public static void main(String[] args) {

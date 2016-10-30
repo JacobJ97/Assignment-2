@@ -45,7 +45,7 @@ public class STGUICardView extends JPanel{
                     if (numOfClicks == DOUBLE_CLICK) {
                         cardName.setIcon(null);
                         cardName.setBorder(null);
-                        cardName.setText("Played, and sent to the deck.");
+                        JOptionPane.showMessageDialog(null, "You have played card id: " + card.getId());
                         super.mouseClicked(e);
                     }
                 }
